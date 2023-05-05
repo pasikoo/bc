@@ -6,8 +6,8 @@ const mappings = {
 
 const user = { roles: ['BC_ADMIN', 'BC_CLINICAL'] };
 
-export const getUserRoles = () => user.roles;
+export const getUserRoles = (): string[] => user.roles;
 
-export const setUserRoles = (newRoles: string[]) => user.roles = newRoles;
+export const setUserRoles = (newRoles: string[]): void => { user.roles = newRoles };
 
-export const getMappings = () => mappings;
+export const getMappings = (): Record<string, string> => mappings;

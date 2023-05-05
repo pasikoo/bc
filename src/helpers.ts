@@ -5,7 +5,7 @@ interface Roles {
     roleMapping: Record<string, string>
 };
 
-export const mapRoles = ({ newRoles, currentRoles, roleMapping }: Roles) => {
+export const mapRoles = ({ newRoles, currentRoles, roleMapping }: Roles): { unknownRoles: string[], deletedRoles: string[], addedRoles: string[], unchangedRoles: string[] } => {
 
     const unknownRoles = newRoles.filter((role: string) => !Object.keys(roleMapping).includes(role));
 

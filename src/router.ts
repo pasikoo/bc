@@ -1,12 +1,12 @@
-import { Router, Request, Response, NextFunction } from "express";
+import { Router, type Request, type Response, type NextFunction } from "express";
 import { mapRoles } from "./helpers.js";
 import { getUserRoles, setUserRoles, getMappings } from "./db.js";
 
 const router = Router();
 
-router.patch("/api/v1/users/:id/roles", async (req: Request, res: Response, next: NextFunction) => {
+router.patch("/api/v1/users/:id/roles", (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { roles: newRoles } = req.body;
+        const { roles: newRoles }: { roles: string[] } = req.body;
 
         if (!newRoles) {
             return res.status(400).json({ message: `Error due missing roles JSON property` });
